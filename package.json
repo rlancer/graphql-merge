@@ -17,13 +17,12 @@
     "schema": "^0.2.1"
   },
   "devDependencies": {
+    "husky": "^0.14.3",
+    "lint-staged": "^4.2.3",
     "nodemon": "^1.12.1",
     "prettier": "^1.7.4"
   },
   "lint-staged": {
-    "*.{js,json,css}": [
-      "prettier --print-width 150 --no-semi --single-quote --jsx-bracket-same-line --write",
-      "git add"
-    ]
+    "*.{js,json,css}": ["prettier --print-width 150 --no-semi --single-quote --jsx-bracket-same-line --write", "git add"]
   }
 }
