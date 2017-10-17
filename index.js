@@ -4,7 +4,6 @@ const graphqlHTTP = require('express-graphql')
 const DataLoader = require('dataloader')
 
 const DATA_PAYMENT_REQUESTS = [
-  { id: '1', user_id: '1', message: 'For logo creation', amount: 33 },
   {
     id: '1',
     user_id: '1',
@@ -28,10 +27,16 @@ const DATA_PAYMENT_REQUESTS = [
   { id: '5', user_id: '2', message: 'For logo creation', amount: 33 },
   { id: '6', user_id: '3', message: 'For logo creation', amount: 33 },
   { id: '7', user_id: '4', message: 'For logo creation', amount: 33 },
-  { id: '8', user_id: '3', message: 'For logo creation', amount: 33 }
+  { id: '8', user_id: '3', message: 'For logo creation', amount: 33 },
+  { id: '9', user_id: '1', message: 'For logo creation', amount: 33 }
 ]
 
-const DATA_USERS = [{ id: '1', name: 'Jen' }, { id: '2', name: 'Sue' }, { id: '3', name: 'Marry' }, { id: '4', name: 'Liz' }]
+const DATA_USERS = {
+  '1': { id: '1', name: 'Jen' },
+  '2': { id: '2', name: 'Sue' },
+  '3': { id: '3', name: 'Marry' },
+  '4': { id: '4', name: 'Liz' }
+}
 
 const User = new GraphQLObjectType({
   name: 'User',
@@ -47,7 +52,11 @@ const PaymentRequest = new GraphQLObjectType({
     id: { type: GraphQLID },
     user_id: { type: GraphQLString },
     message: { type: GraphQLString },
-    amount: { type: GraphQLFloat }
+    amount: { type: GraphQLFloat },
+    user: {
+      type: User,
+      resolve: ({ user_id }, _, ctx) => ctx.userLoader.load(user_id)
+    }
   },
   date_created: { type: GraphQLString }
 })
@@ -68,7 +77,7 @@ const schema = new GraphQLSchema({ query: queryType })
 
 const app = express()
 
-function loadUsers(keys) {}
+const loadUsers = async keys => keys.map(key => DATA_USERS[key])
 
 app.use(
   '/graphql',
