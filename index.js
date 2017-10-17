@@ -2,7 +2,6 @@ const { GraphQLSchema, GraphQLObjectType, GraphQLString, GraphQLID, GraphQLFloat
 const express = require('express')
 const graphqlHTTP = require('express-graphql')
 const DataLoader = require('dataloader')
-// dd
 
 const DATA_PAYMENT_REQUESTS = [
   { id: '1', user_id: '1', message: 'For logo creation', amount: 33 },
