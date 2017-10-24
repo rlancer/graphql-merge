@@ -38,6 +38,7 @@ It should automatically open up the GraphiQL interface, paste in the following q
 
 ![graphql-merge](https://user-images.githubusercontent.com/1339007/31953649-800fd524-b8b1-11e7-9520-98fc7d3b5490.png)
 
-
+# Enjoy 
+Join me on [Collaborizm](https://www.collaborizm.com/) for more tech and hacking! 
 
 
