@@ -1,7 +1,7 @@
 # Merging RethinkDB and Postgres with GraphQL 
 
 
-> An example which shows how to merge 2 data sources into one via GraphQL &middot; *[Read the full post on Medium](https://medium.com/@robizm/merging-rethinkdb-and-postgres-with-graphql-b8801f69c8ea)*
+> An example which shows how to merge 2 data sources into one via GraphQL &middot; *[Read the full post on Medium](https://blog.collaborizm.com/merging-rethinkdb-and-postgres-with-graphql-b8801f69c8ea)*
 
 ## Getting started 
 
