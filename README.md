@@ -35,7 +35,7 @@ It should automatically open up the GraphiQL interface, paste in the following q
 
 ```
 
-
+![graphql-merge](https://user-images.githubusercontent.com/1339007/31953649-800fd524-b8b1-11e7-9520-98fc7d3b5490.png)
 
 
 ## Lear more on Medium [Merging RethinkDB and Postgres with GraphQL](https://medium.com/@robizm/merging-rethinkdb-and-postgres-with-graphql-b8801f69c8ea)
