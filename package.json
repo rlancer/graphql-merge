@@ -6,6 +6,7 @@
   "author": "Robert Lancer",
   "license": "MIT",
   "scripts": {
+    "start": "node index",
     "dev": "nodemon index",
     "precommit": "lint-staged"
   },
@@ -14,6 +15,7 @@
     "express": "^4.16.2",
     "express-graphql": "^0.6.11",
     "graphql": "^0.11.7",
+    "opn": "^5.1.0",
     "schema": "^0.2.1"
   },
   "devDependencies": {

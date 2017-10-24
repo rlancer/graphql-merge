@@ -1,9 +1,10 @@
-const { GraphQLSchema, GraphQLObjectType, GraphQLString, GraphQLID, GraphQLFloat, GraphQLInt, GraphQLNonNull, GraphQLList } = require('graphql')
+const { GraphQLSchema, GraphQLObjectType, GraphQLString, GraphQLID, GraphQLFloat, GraphQLList } = require('graphql')
 const express = require('express')
 const graphqlHTTP = require('express-graphql')
 const DataLoader = require('dataloader')
+const opn = require('opn')
 
-const DATA_PAYMENT_REQUESTS = [
+const DATA_PAYMENTS = [
   {
     id: '1',
     user_id: '1',
@@ -46,7 +47,7 @@ const User = new GraphQLObjectType({
   }
 })
 
-const PaymentRequest = new GraphQLObjectType({
+const Payment = new GraphQLObjectType({
   name: 'PaymentRequest',
   fields: {
     id: { type: GraphQLID },
@@ -64,10 +65,10 @@ const PaymentRequest = new GraphQLObjectType({
 const queryType = new GraphQLObjectType({
   name: 'RootQueryType',
   fields: {
-    paymentRequests: {
-      type: new GraphQLList(PaymentRequest),
+    payments: {
+      type: new GraphQLList(Payment),
       async resolve(_, args) {
-        return DATA_PAYMENT_REQUESTS
+        return DATA_PAYMENTS
       }
     }
   }
@@ -92,4 +93,6 @@ app.use(
 
 const port = 4000
 app.listen(port)
-console.log('Listing on port ', port)
+const url = `http://localhost:${port}/graphql`
+console.log(`Opening ${url}`)
+opn(url)
